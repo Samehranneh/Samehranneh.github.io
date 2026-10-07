@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mohamad Sameh Ranneh — Programs & Data, Aleppo</title>
+<title>Mohamad Sameh Ranneh | Program Manager & Information Engineer</title>
 <meta name="description" content="Information & Communication Engineer and humanitarian program manager in Aleppo, Syria.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#F1F2EC; --ink:#1E2621; --olive:#4B5A2A; --laurel:#8E9A5E; --stone:#C7BA9C; --muted:#5E665F;
-  --display:"Reem Kufi", "Segoe UI", Tahoma, sans-serif;
-  --body:"IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --display:"Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", Arial, sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root{--paper:#171C18; --ink:#E6E8E1; --olive:#B5C47E; --laurel:#8E9A5E; --stone:#6E6550; --muted:#A3AAA2;}
@@ -27,9 +27,9 @@ a:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
 
 /* hero */
 .hero{display:grid;grid-template-columns:1.25fr 1fr;gap:3rem;align-items:end;padding:4.5rem 0 3.5rem;border-bottom:1px solid var(--stone)}
-.ar-name{font:700 clamp(3.5rem,9.5vw,8rem)/1.05 var(--display);white-space:nowrap;color:var(--olive);direction:rtl;text-align:right;letter-spacing:0}
-.en{margin-top:1.75rem}
-.en h1{font:600 1.75rem/1.2 var(--body)}
+.name{font:800 clamp(3rem,8vw,6.25rem)/.95 var(--display);color:var(--olive);letter-spacing:-.02em}
+.en{margin-top:1.5rem}
+.en .role{font:600 1.35rem/1.3 var(--body)}
 .en p{color:var(--muted);max-width:34rem;margin-top:.6rem}
 .photo{position:relative}
 .photo img{width:100%;max-width:340px;display:block;margin-left:auto;aspect-ratio:400/490;object-fit:cover;
@@ -67,7 +67,7 @@ footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.92rem}
   .two{grid-template-columns:1fr;gap:.5rem}
 }
 @media (prefers-reduced-motion:no-preference){
-  .ar-name{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .name{font:800 clamp(3rem,8vw,6.25rem)/.95 var(--display);color:var(--olive);letter-spacing:-.02em}
   @keyframes rise{from{opacity:0;transform:translateY(.25em)}to{opacity:1;transform:none}}
 }
 </style>
@@ -77,10 +77,10 @@ footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.92rem}
 
 <header class="hero">
   <div>
-    <div class="ar-name" lang="ar">سامح رنّه</div>
+    <h1 class="name">Mohamad Sameh<br>Ranneh</h1>
     <div class="en">
-      <h1>Mohamad Sameh Ranneh</h1>
-      <p>Information &amp; Communication Engineer and humanitarian program manager in Aleppo, Syria. I run programs with UN agency partners and build the data tools that keep them accountable.</p>
+      <p class="role">Program Manager &amp; Information Engineer</p>
+      <p>Humanitarian and development programs in Syria, delivered with UN agency partners and backed by solid monitoring, evaluation and data systems.</p>
       <div class="links">
         <a href="mailto:samehranneh2@gmail.com">samehranneh2@gmail.com</a>
         <a href="https://github.com/Samehranneh">GitHub</a>
@@ -93,8 +93,8 @@ footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.92rem}
 <section class="two" aria-labelledby="about">
   <h2 id="about">About</h2>
   <div class="lead">
-    <p>I studied engineering, then spent my working years in the field: protection teams with the Syrian Arab Red Crescent, health and nutrition coordination, cash assistance, and market research for a WFP project. Today I manage programs and evaluations, and I still write code when a spreadsheet stops being enough.</p>
-    <p style="margin-top:1rem">That mix is the point. I can sit with a community committee in the morning and design the monitoring database in the afternoon.</p>
+    <p>Information and Communication Engineer with an M.Sc. in Computer Science and over four years of field and management experience in Syria's humanitarian sector, including protection, health and nutrition, cash assistance, market monitoring and camp response.</p>
+    <p style="margin-top:1rem">I combine program management (design, grants, budgets, partner coordination) with hands-on technical skills in MEAL systems, digital data collection, analysis and software development.</p>
   </div>
 </section>
 
@@ -102,7 +102,7 @@ footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.92rem}
   <h2 id="exp">Experience</h2>
   <ol class="tl">
     <li><div class="when">2026 – present</div><h3>Program Management, MIDMAR</h3><p>Programs with UNDP and UN Women: technical evaluations, budgets, partner coordination, and trainings across Syria.</p></li>
-    <li><div class="when">Mar 2026</div><h3>Field Coordinator, Al-Hol camp response · Al-Ihsan Association</h3><p>Team supervision, implementation monitoring, safety of field teams.</p></li>
+    <li><div class="when">Mar 2026</div><h3>Field Coordinator, Al-Hol Camp Response · Al-Ihsan Association</h3><p>Team supervision, implementation monitoring, safety of field teams.</p></li>
     <li><div class="when">Nov 2025 – present</div><h3>Field Researcher · Venture (third-party for WFP)</h3><p>Market monitoring across Aleppo governorate; FGDs, KIIs and surveys with KoboToolbox and ODK.</p></li>
     <li><div class="when">2025</div><h3>Programs Manager · From Heart to Heart Foundation</h3><p>Program design, grant management, M&amp;E oversight and risk management.</p></li>
     <li><div class="when">2023 – 2025</div><h3>Cash Officer and IT Assistant · SSSD</h3><p>Cash programming support and reporting; systems, networks and data management.</p></li>
@@ -115,19 +115,19 @@ footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.92rem}
   <h2 id="proj">Projects</h2>
   <div class="proj">
     <div>
-      <h3><a href="https://github.com/Samehranneh/face-recognition-db">Face recognition database</a></h3>
-      <p>Register people with a photo and find them again by picture. Built as a prototype for flagging duplicate registrations in field programs, with data-protection notes.</p>
+      <h3><a href="https://github.com/Samehranneh/face-recognition-db">Face Recognition Database</a></h3>
+      <p>Registers people with a photo and identifies them from a new picture using 128-dimensional face embeddings. Designed as a prototype for detecting duplicate beneficiary registrations.</p>
       <div class="stack">Python, face_recognition, NumPy</div>
     </div>
     <div>
-      <h3>Damascus Stock Market analysis</h3>
-      <p>Master's project at the Syrian Virtual University analysing market data from the Damascus Securities Exchange.</p>
-      <div class="stack">Code coming to GitHub</div>
+      <h3><a href="https://github.com/Samehranneh/vehicle-classification-model-comparison">Vehicle Classification Model Comparison</a></h3>
+      <p>Benchmarks Logistic Regression, Decision Tree and Naive Bayes on a 1.4 GB vehicles dataset and publishes the results. Decision Tree reached 0.64 accuracy.</p>
+      <div class="stack">Python, scikit-learn, Jupyter, HTML/SCSS</div>
     </div>
     <div>
-      <h3><a href="https://github.com/Samehranneh/IDM-results">Data mining coursework</a></h3>
-      <p>Data mining and machine learning work from the M.Sc. program, including a large vehicles dataset.</p>
-      <div class="stack">Python, Jupyter, HTML/SCSS</div>
+      <h3><a href="https://github.com/Samehranneh/developer-designer-portfolio-website">Developer &amp; Designer Portfolio Website</a></h3>
+      <p>Multi-section website built for a programmer and graphic designer: services, gallery, testimonials, blog and a component style guide.</p>
+      <div class="stack">HTML, SCSS, Bootstrap, Gulp</div>
     </div>
   </div>
 </section>
@@ -155,6 +155,6 @@ footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.92rem}
 </section>
 
 </main>
-<footer class="wrap">Arabic (native) and English (C2). Based in Aleppo, Syria.</footer>
+<footer class="wrap">Languages: Arabic (native), English (C2). Based in Aleppo, Syria.</footer>
 </body>
 </html>

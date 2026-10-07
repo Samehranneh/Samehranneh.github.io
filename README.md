@@ -1,3 +1,3 @@
-# Personal site
+# samehranneh.github.io
 
-Source for [samehranneh.github.io/portfolio](https://samehranneh.github.io/portfolio/). A single static HTML page, no build step.
+Source for my personal website at [samehranneh.github.io](https://samehranneh.github.io/). A single static HTML page with no build step.
