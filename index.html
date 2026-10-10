@@ -10,12 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#F1F2EC; --ink:#1E2621; --olive:#4B5A2A; --laurel:#8E9A5E; --stone:#C7BA9C; --muted:#5E665F;
+  --paper:#1E2325; --panel:#565E61; --ink:#ECEAE6; --muted:#A8AFB1;
+  --accent:#D38C62; --accent-soft:#E7B595; --line:#363E41;
+  --olive:var(--accent); --laurel:var(--line); --stone:var(--line);
   --display:"Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
   --body:"IBM Plex Sans", "Segoe UI", Arial, sans-serif;
-}
-@media (prefers-color-scheme: dark){
-  :root{--paper:#171C18; --ink:#E6E8E1; --olive:#B5C47E; --laurel:#8E9A5E; --stone:#6E6550; --muted:#A3AAA2;}
+  color-scheme:dark;
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
@@ -25,15 +25,27 @@ a{color:var(--olive);text-underline-offset:3px}
 a:focus-visible{outline:2px solid var(--olive);outline-offset:3px}
 .wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
 
-/* hero */
-.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:3rem;align-items:end;padding:4.5rem 0 3.5rem;border-bottom:1px solid var(--stone)}
-.name{font:800 clamp(3rem,8vw,6.25rem)/.95 var(--display);color:var(--olive);letter-spacing:-.02em}
+/* hero: full-bleed band in the photo's own slate grey, so the portrait has no edge */
+.hero{position:relative;width:100vw;margin-left:calc(50% - 50vw);background:var(--panel);
+  background:linear-gradient(90deg,#3B4245 0%,#4A5255 45%,#535B5E 75%,#4E5659 100%);overflow:hidden}
+.hero-in{max-width:68rem;margin:0 auto;padding:0 1.5rem;display:grid;grid-template-columns:1.15fr 1fr;align-items:center;min-height:min(78vh,640px)}
+.hero-text{padding:4rem 0;position:relative;z-index:1}
+.kicker{font:600 .8rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:1.25rem}
+.name{font:800 clamp(3rem,7.5vw,5.75rem)/.95 var(--display);color:var(--ink);letter-spacing:-.025em}
+.name span{color:var(--accent)}
 .en{margin-top:1.5rem}
-.en .role{font:600 1.35rem/1.3 var(--body)}
-.en p{color:var(--muted);max-width:34rem;margin-top:.6rem}
-.photo{position:relative}
-.photo img{width:100%;max-width:340px;display:block;margin-left:auto;aspect-ratio:400/490;object-fit:cover;
-  clip-path:polygon(0 0,100% 0,100% 88%,82% 100%,0 100%)}
+.en .role{font:600 1.3rem/1.3 var(--body);color:var(--ink)}
+.en p{color:#D2D6D7;max-width:32rem;margin-top:.6rem}
+.photo{align-self:end;height:100%;display:flex;align-items:flex-end;justify-content:flex-end}
+.photo img{display:block;width:100%;max-width:520px;height:auto;
+  /* fade every edge except the bottom so the photo's grey melts into the band */
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%,#000 86%,transparent 100%),linear-gradient(180deg,transparent 0,#000 16%);
+  -webkit-mask-composite:source-in;
+          mask-image:linear-gradient(90deg,transparent 0,#000 24%,#000 86%,transparent 100%),linear-gradient(180deg,transparent 0,#000 16%);
+          mask-composite:intersect}
+.hero a{color:var(--ink);text-decoration-color:var(--accent);text-decoration-thickness:2px}
+.btn{display:inline-block;padding:.7rem 1.2rem;border-radius:6px;background:var(--accent);color:#1E2325 !important;text-decoration:none;font-weight:600}
+.btn:hover{background:var(--accent-soft)}
 .links{margin-top:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
 
 section{padding:3.5rem 0;border-bottom:1px solid var(--stone)}
@@ -45,12 +57,17 @@ h2{font:700 1.9rem/1.2 var(--display);color:var(--olive);margin-bottom:1.5rem}
 /* timeline: a real sequence, newest first */
 .tl{list-style:none;padding:0;border-left:2px solid var(--laurel);margin-left:.4rem}
 .tl li{position:relative;padding:0 0 1.75rem 1.5rem}
-.tl li::before{content:"";position:absolute;left:-.45rem;top:.55rem;width:.8rem;height:.8rem;background:var(--paper);border:2px solid var(--olive);border-radius:50%}
+.tl li::before{content:"";position:absolute;left:-.45rem;top:.55rem;width:.8rem;height:.8rem;background:var(--paper);border:2px solid var(--accent);border-radius:50%}
 .tl .when{font-size:.9rem;color:var(--muted)}
 .tl h3{font:600 1.1rem/1.35 var(--body)}
 .tl p{color:var(--muted);max-width:40rem}
 
-.proj{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:2rem}
+.proj{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1.25rem}
+.proj>div{background:#262C2E;border:1px solid var(--line);border-radius:10px;padding:1.4rem 1.4rem 1.2rem;transition:border-color .2s}
+.proj>div:hover{border-color:var(--accent)}
+.proj h3 a{color:var(--ink);text-decoration:none}
+.proj h3 a:hover{color:var(--accent)}
+.proj .stack{color:var(--accent-soft)}
 .proj h3{font:600 1.1rem/1.35 var(--body);margin-bottom:.35rem}
 .proj p{color:var(--muted)}
 .proj .stack{font-size:.9rem;margin-top:.4rem}
@@ -62,12 +79,13 @@ h2{font:700 1.9rem/1.2 var(--display);color:var(--olive);margin-bottom:1.5rem}
 footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.92rem}
 
 @media (max-width:760px){
-  .hero{grid-template-columns:1fr;padding-top:3rem}
-  .photo{order:-1}.photo img{margin:0;max-width:220px}
+  .hero-in{grid-template-columns:1fr;min-height:0}
+  .hero-text{padding:2.5rem 0 1rem}
+  .photo{justify-content:center}.photo img{max-width:420px}
   .two{grid-template-columns:1fr;gap:.5rem}
 }
 @media (prefers-reduced-motion:no-preference){
-  .name{font:800 clamp(3rem,8vw,6.25rem)/.95 var(--display);color:var(--olive);letter-spacing:-.02em}
+  .hero-text{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
   @keyframes rise{from{opacity:0;transform:translateY(.25em)}to{opacity:1;transform:none}}
 }
 </style>
@@ -76,18 +94,22 @@ footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.92rem}
 <main class="wrap">
 
 <header class="hero">
-  <div>
-    <h1 class="name">Mohamad Sameh<br>Ranneh</h1>
-    <div class="en">
-      <p class="role">Program Manager &amp; Information Engineer</p>
-      <p>Humanitarian and development programs in Syria, delivered with UN agency partners and backed by solid monitoring, evaluation and data systems.</p>
-      <div class="links">
-        <a href="mailto:samehranneh2@gmail.com">samehranneh2@gmail.com</a>
-        <a href="https://github.com/Samehranneh">GitHub</a>
+  <div class="hero-in">
+    <div class="hero-text">
+      <div class="kicker">Aleppo, Syria</div>
+      <h1 class="name">Mohamad Sameh<br><span>Ranneh</span></h1>
+      <div class="en">
+        <p class="role">Program Manager &amp; Information Engineer</p>
+        <p>Humanitarian and development programs in Syria, delivered with UN agency partners and backed by solid monitoring, evaluation and data systems.</p>
+        <div class="links">
+          <a class="btn" href="mailto:samehranneh2@gmail.com">Get in touch</a>
+          <a href="https://github.com/Samehranneh">GitHub</a>
+          <a href="#proj">Projects</a>
+        </div>
       </div>
     </div>
+    <div class="photo"><img src="imgs/sameh.jpg" alt="Mohamad Sameh Ranneh" width="900" height="1058"></div>
   </div>
-  <div class="photo"><img src="imgs/sameh.jpg" alt="Mohamad Sameh Ranneh"></div>
 </header>
 
 <section class="two" aria-labelledby="about">
@@ -112,7 +134,7 @@ footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.92rem}
 </section>
 
 <section aria-labelledby="proj">
-  <h2 id="proj">Projects</h2>
+  <h2 id="proj" style="scroll-margin-top:1rem">Projects</h2>
   <div class="proj">
     <div>
       <h3><a href="https://github.com/Samehranneh/damascus-stock-market-forecasting">Damascus Stock Market Forecasting</a></h3>
